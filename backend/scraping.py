@@ -8,6 +8,7 @@ def extract_text_from_url(url):
             return None
         soup = BeautifulSoup(response.text, "html.parser")
         paragraphs = soup.find_all("p")
-        return " ".join([p.get_text() for p in paragraphs])
+        text = " ".join([p.get_text() for p in paragraphs])
+        return text.strip()
     except Exception as e:
         return None
