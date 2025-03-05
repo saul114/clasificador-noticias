@@ -1,8 +1,6 @@
 Flask
-Flask-Cors
 tensorflow
 torch
 transformers
-numpy
 requests
 beautifulsoup4
