@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,72 +12,85 @@ body {
 
 /* Contenedor principal */
 .container {
-    background: white;
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
-    width: 80%;
+    width: 90%;
     max-width: 600px;
 }
 
 /* Títulos */
 h1 {
     color: #333;
-    font-size: 24px;
-}
-
-h3 {
-    margin-top: 15px;
-    color: #555;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 h2 {
-    margin-top: 20px;
     color: #007bff;
+    margin-top: 20px;
 }
 
-/* Área de texto */
-textarea {
-    width: calc(100% - 20px);  /* Ajuste para que coincida con los demás elementos */
-    height: 100px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
-    font-size: 16px;
+/* Botones para seleccionar método */
+.method-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
-/* Entrada de URL y archivos */
-input[type="text"], 
-input[type="file"] {
-    width: calc(100% - 20px);  /* Coincide con el tamaño del textarea */
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Botones */
-button {
+.method-buttons button {
     background-color: #007bff;
     color: white;
-    padding: 10px 15px;
     border: none;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease-in-out;
-    width: calc(100% - 20px);  /* Coincide con el tamaño del textarea */
+    transition: background 0.3s ease;
+    width: 30%;
+    font-size: 0.9rem;
 }
 
-button:hover {
+.method-buttons button:hover {
     background-color: #0056b3;
+}
+
+/* Contenedores de entrada */
+.input-container {
+    margin: 10px 0;
+}
+
+textarea, input[type="text"], input[type="url"], input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Botón de envío */
+#submitButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: calc(100% - 20px);
+    font-size: 1rem;
+}
+
+#submitButton:hover {
+    background-color: #218838;
 }
 
 /* Resultado */
 #result {
+    margin-top: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 15px;
-    font-size: 18px;
+    color: #333;
 }
