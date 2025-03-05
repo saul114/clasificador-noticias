@@ -10,20 +10,32 @@
     <div class="container">
         <h1>Clasificador de Noticias</h1>
 
-        <h3>Ingresar Texto:</h3>
-        <textarea id="textInput" placeholder="Escribe o pega la noticia aquí..."></textarea>
-        <button id="analyzeButton">Analizar</button>
+        <!-- Botones para seleccionar el método de entrada -->
+        <div class="method-buttons">
+            <button id="textButton">Ingresar Texto</button>
+            <button id="fileButton">Subir Archivo</button>
+            <button id="linkButton">Ingresar URL</button>
+        </div>
 
-        <h3>Subir Archivo .txt:</h3>
-        <input type="file" id="fileInput" accept=".txt">
+        <!-- Sección para texto -->
+        <div id="textInputContainer" class="input-container" style="display: none;">
+            <textarea id="textInput" placeholder="Escribe la noticia aquí..."></textarea>
+        </div>
 
-        <h3>Ingresar URL:</h3>
-        <input type="text" id="urlInput" placeholder="Pega el enlace de una noticia">
-        <button id="urlButton">Analizar URL</button>
+        <!-- Sección para archivo -->
+        <div id="fileInputContainer" class="input-container" style="display: none;">
+            <input type="file" id="fileInput" accept=".txt">
+        </div>
+
+        <!-- Sección para URL -->
+        <div id="linkInputContainer" class="input-container" style="display: none;">
+            <input type="url" id="linkInput" placeholder="Pega el enlace aquí...">
+        </div>
+
+        <button id="submitButton">Enviar</button>
 
         <h2 id="result"></h2>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
