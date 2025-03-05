@@ -1,52 +1,86 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
+/* Contenedor principal */
 .container {
     background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 350px;
+    width: 80%;
+    max-width: 600px;
 }
 
+/* Títulos */
 h1 {
-    font-size: 1.5rem;
     color: #333;
+    font-size: 24px;
 }
 
-input {
-    width: 90%;
+h3 {
+    margin-top: 15px;
+    color: #555;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Área de texto */
+textarea {
+    width: 100%;
+    height: 100px;
     padding: 10px;
-    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+/* Entrada de URL */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* Botones */
 button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background: #007bff;
+    background-color: #007bff;
     color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #0056b3;
 }
 
-p {
+/* Entrada de archivos */
+input[type="file"] {
     margin-top: 10px;
-    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Resultado */
+#result {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 18px;
 }
