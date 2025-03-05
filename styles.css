@@ -39,17 +39,19 @@ h2 {
 
 /* Área de texto */
 textarea {
-    width: 100%;
+    width: calc(100% - 20px);  /* Ajuste para que coincida con los demás elementos */
     height: 100px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     resize: none;
+    font-size: 16px;
 }
 
-/* Entrada de URL */
-input[type="text"] {
-    width: 100%;
+/* Entrada de URL y archivos */
+input[type="text"], 
+input[type="file"] {
+    width: calc(100% - 20px);  /* Coincide con el tamaño del textarea */
     padding: 8px;
     margin: 5px 0;
     border: 1px solid #ccc;
@@ -66,16 +68,11 @@ button {
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s ease-in-out;
+    width: calc(100% - 20px);  /* Coincide con el tamaño del textarea */
 }
 
 button:hover {
     background-color: #0056b3;
-}
-
-/* Entrada de archivos */
-input[type="file"] {
-    margin-top: 10px;
-    cursor: pointer;
 }
 
 /* Resultado */
