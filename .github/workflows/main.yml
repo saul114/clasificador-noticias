@@ -1,0 +1,28 @@
+name: Deploy Flask API
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+
+      - name: Instalar dependencias
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Ejecutar pruebas
+        run: |
+          cd backend
+          python app.py &
+          sleep 5
+          curl -X POST http://localhost:5000/classify -H "Content-Type: application/json" -d '{"text": "El mercado de valores está en alza"}'
