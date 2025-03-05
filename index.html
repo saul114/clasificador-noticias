@@ -9,10 +9,21 @@
 <body>
     <div class="container">
         <h1>Clasificador de Noticias</h1>
-        <input type="text" id="textInput" placeholder="Escribe una noticia o pega una URL">
+
+        <h3>Ingresar Texto:</h3>
+        <textarea id="textInput" placeholder="Escribe o pega la noticia aquí..."></textarea>
         <button id="analyzeButton">Analizar</button>
-        <p id="result"></p>
+
+        <h3>Subir Archivo .txt:</h3>
+        <input type="file" id="fileInput" accept=".txt">
+
+        <h3>Ingresar URL:</h3>
+        <input type="text" id="urlInput" placeholder="Pega el enlace de una noticia">
+        <button id="urlButton">Analizar URL</button>
+
+        <h2 id="result"></h2>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
