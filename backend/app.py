@@ -3,8 +3,9 @@ import numpy as np
 import tensorflow as tf
 from transformers import BertTokenizer, BertModel
 import torch
+from newspaper import Article  # Para el scraping
 
-# Configurar el dispositivo (CPU para evitar problemas en servidores)
+# Configurar el dispositivo
 device = torch.device("cpu")
 
 # Cargar modelo BERT y tokenizador
@@ -38,6 +39,16 @@ def predict_class(text):
     pred_class = int(np.argmax(pred_probs, axis=1)[0])
     return pred_class, topic_to_label.get(pred_class, "Desconocido")
 
+def extract_article_text(url):
+    """Extrae el contenido de un artículo de noticias desde una URL"""
+    try:
+        article = Article(url)
+        article.download()
+        article.parse()
+        return article.text
+    except Exception as e:
+        return None
+
 @app.route('/classify', methods=['POST'])
 def classify_text():
     data = request.get_json()
@@ -48,6 +59,22 @@ def classify_text():
 
     class_idx, class_name = predict_class(text)
     return jsonify({"class": class_name, "index": class_idx})
+
+@app.route('/scrape', methods=['POST'])
+def scrape_and_classify():
+    """Toma una URL, extrae la noticia y la clasifica"""
+    data = request.get_json()
+    url = data.get("url", "")
+
+    if not url:
+        return jsonify({"error": "No URL provided"}), 400
+
+    article_text = extract_article_text(url)
+    if not article_text:
+        return jsonify({"error": "No se pudo extraer la noticia"}), 400
+
+    class_idx, class_name = predict_class(article_text)
+    return jsonify({"class": class_name, "index": class_idx, "article_text": article_text[:500]})  # Limitamos la salida
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
