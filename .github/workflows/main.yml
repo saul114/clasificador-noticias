@@ -23,11 +23,11 @@ jobs:
           cd backend
           pip install -r requirements.txt
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout del repositorio
-        uses: actions/checkout@v3
-      # Aquí puedes agregar pasos para desplegar tu aplicación en un servidor o contenedor Docker
+      - name: Ejecutar Flask en el puerto correcto
+        run: |
+          cd backend
+          python app.py &
+        env:
+          FLASK_APP: app.py
+          FLASK_RUN_HOST: 0.0.0.0
+          FLASK_RUN_PORT: 8000
