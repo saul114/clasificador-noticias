@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultDiv.textContent = "Por favor, ingresa una URL.";
                 return;
             }
-            fetch("http://127.0.0.1:5000/process-url", {
+            fetch("http://127.0.0.1:8000/process-url", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
