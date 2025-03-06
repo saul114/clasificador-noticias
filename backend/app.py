@@ -3,6 +3,9 @@ from modelo import predict_class
 from scraping import extract_text_from_url
 import requests
 from bs4 import BeautifulSoup
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app)
 
 app = Flask(__name__)
 
